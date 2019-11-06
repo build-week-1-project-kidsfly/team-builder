@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 // import { Card } from './TeamList.js';
-import Button from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import styled from "styled-components";
+
+const CenteredForm = styled.div`
+    margin-left: 15%
+`;
 
 const Create = props => {
     const initialMember = { name: "", nickname: "", role: "", email: "" };
