@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import MemberList from "./components/MemberList";
+import { AlphaTeam } from "./teamdata";
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Center = styled.div`
+    width: 80%;
+    marginLeft: auto;
+    marginRight: auto;
+    color: red;
+`;
+
+const App = () => {
+    const [team, setTeam] = useState({});
+    return (
+        <div class='hello'>
+            <h1 className='align'>Original Members</h1>
+            <MemberList groupData={AlphaTeam} />
+            <h1 className='align'>New Members</h1>
+        </div>
+    );
+};
 
 export default App;
