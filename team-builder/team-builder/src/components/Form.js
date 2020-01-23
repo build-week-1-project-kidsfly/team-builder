@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NewMemberList from "./NewMemberList";
 
 const Form = () => {
     const [newMember, setNewMember] = useState({
@@ -24,6 +25,7 @@ const Form = () => {
 
     return (
         <div className='hello'>
+            <NewMemberList newMemData={newMember} />
             <form onSubmit={onInputSubmit}>
                 <label>
                     Name: <input name='name' value={newMember.name} onChange={onInputChange} type='text' />
