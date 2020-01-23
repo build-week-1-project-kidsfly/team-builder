@@ -14,7 +14,13 @@ const Form = () => {
     };
     const onInputSubmit = event => {
         event.preventDefault();
-    }
+        console.log(newMember);
+        setNewMember({
+            name: "",
+            role: "",
+            email: ""
+        })
+    };
 
     return (
         <div className='hello'>
@@ -25,7 +31,7 @@ const Form = () => {
                 <br/>
                 <label>
                     Role:
-                    <select name='role' value={newMember.role} onChange={onInputChange}>
+                    <select name='role' onChange={onInputChange}>
                         <option disabled selected hidden>Select One</option>
                         <option>Project Manager</option>
                         <option>Assistant PM</option>
