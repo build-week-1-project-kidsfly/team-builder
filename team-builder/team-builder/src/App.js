@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
 import MemberList from "./components/MemberList";
 import { AlphaTeam } from "./teamdata";
-import styled from "styled-components";
-
-const Center = styled.div`
-    width: 80%;
-    marginLeft: auto;
-    marginRight: auto;
-    color: red;
-`;
+import Form from "./components/Form";
 
 const App = () => {
     const [team, setTeam] = useState({});
+    console.log(team)
     return (
-        <div class='hello'>
+        <div className='hello'>
             <h1 className='align'>Original Members</h1>
             <MemberList groupData={AlphaTeam} />
             <h1 className='align'>New Members</h1>
+            <Form  />
         </div>
     );
 };
