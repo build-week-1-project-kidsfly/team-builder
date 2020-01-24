@@ -2,28 +2,29 @@ import React, { useState } from 'react';
 // import NewMemberList from "./NewMemberList";
 
 const Form = props => {
-    const [newMember, setNewMember] = useState({
+    const initialMember = {
         name: "",
         nickname: "",
         role: "",
         email: ""
-    });
+    }
+    const [newMember, setNewMember] = useState(initialMember);
 
     const onInputChange = event => {
         setNewMember({
             ...newMember, [event.target.name]: event.target.value
         })
     };
+
     const onInputSubmit = event => {
         event.preventDefault();
         console.log(newMember);
-        // (!newMember.name || newMember.email) ? alert("Name and Email are required!") : props.setNewMember([newMember, ...props.members]) ;
-        setNewMember({
-            name: "",
-            nickname: "",
-            role: "",
-            email: ""
-        })
+        (!newMember.name || !newMember.email) ? alert("Name and Email are required!") : props.setNewMember([newMember, ...props.members]) ;
+        reset();
+    };
+
+    const reset = () => {
+        setNewMember(initialMember)
     };
 
     return (
@@ -40,7 +41,7 @@ const Form = props => {
                 <label>
                     Role:
                     <select name='role' onChange={onInputChange}>
-                        <option disabled selected hidden>Select One</option>
+                        <option name='thisOne' disabled selected hidden>Select One</option>
                         <option>Project Manager</option>
                         <option>Assistant PM</option>
                         <option>Fullstack Developer</option>
