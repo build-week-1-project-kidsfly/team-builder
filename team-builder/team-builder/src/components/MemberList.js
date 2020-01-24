@@ -7,8 +7,8 @@ const MemberList = props => {
     const { groupData } = props;
     return (
         <div>
-            {groupData.map(memb => {
-                return <MemberCard member={memb} />
+            {groupData.map((member, index) => {
+                return <MemberCard key={index} member={member} />
             })}
         </div>
     );

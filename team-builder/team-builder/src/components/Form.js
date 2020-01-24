@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import NewMemberList from "./NewMemberList";
+// import NewMemberList from "./NewMemberList";
 
-const Form = () => {
+const Form = props => {
     const [newMember, setNewMember] = useState({
         name: "",
+        nickname: "",
         role: "",
         email: ""
     });
@@ -16,8 +17,10 @@ const Form = () => {
     const onInputSubmit = event => {
         event.preventDefault();
         console.log(newMember);
+        // (!newMember.name || newMember.email) ? alert("Name and Email are required!") : props.setNewMember([newMember, ...props.members]) ;
         setNewMember({
             name: "",
+            nickname: "",
             role: "",
             email: ""
         })
@@ -25,10 +28,13 @@ const Form = () => {
 
     return (
         <div className='hello'>
-            <NewMemberList newMemData={newMember} />
             <form onSubmit={onInputSubmit}>
                 <label>
                     Name: <input name='name' value={newMember.name} onChange={onInputChange} type='text' />
+                </label>
+                <br/>
+                <label>
+                    Nickname: <input name='nickname' value={newMember.nickname} onChange={onInputChange} type='text' />
                 </label>
                 <br/>
                 <label>
@@ -51,6 +57,7 @@ const Form = () => {
                 <br/>
                 <button type='submit'>Submit</button>
             </form>
+            {/*<NewMemberList newMemData={newMember} />*/}
         </div>
     );
 };
