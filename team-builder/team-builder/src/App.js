@@ -11,7 +11,7 @@ const App = () => {
             <h1 className='align'>New Members</h1>
             <Form setNewMember={setTeam} members={team}  />
             <h1 className='align'>Original Members</h1>
-            <MemberList groupData={AlphaTeam} />
+            <MemberList groupData={team} />
         </div>
     );
 };
